@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Film;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -29,5 +30,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Film', 'fas fa-list', Film::class);
+        yield MenuItem::linkToCrud('User', 'fas fa-list', User::class);
     }
 }
