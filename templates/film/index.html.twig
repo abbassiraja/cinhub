@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}film{% endblock %}
+
+{% block body %}
+
+
+
+
+<div class="container">
+{% for item in film %}
+    <div class="d-lg-flex">
+        <div class="card border-0 me-lg-4 mb-lg-0 mb-4">
+            <div class="backgroundEffect"></div>
+            <div class="pic"> <img class="" src="/film/{{item.image}}" alt="">
+                <div class="date"> <span class="day">{{item.time.format('d/m/Y')}}</span>  </div>
+                <div class="prix"><span class="fas fa-comment-alt pe-1">prix:{{ item.prix }} TDN</span></div>
+            </div>
+            <div class="content">
+                <p class="h-1 mt-4">{{ item.nom }}</p>
+                <p class="text-muted mt-3">{{ item.description }}</p>
+                <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
+                    
+                    <div class="d-flex align-items-center justify-content-center foot">
+                        <p class="admin">Réalisé par:{{ item.realisateur }}</p>
+                     
+                    </div>
+
+                <div class="d-flex align-items-center justify-content-center foot">
+
+                       
+  
+                </div>
+
+              <div class="d-flex align-items-center justify-content-center foot">
+                    <p class="ps-3 icon text-muted"><span class="fas fa-comment-alt pe-1">Durée de film:{{item.dure.format('[h]:[m]')}}</span></p>
+            </div>
+            <div class="btn btn-primary">Reserver<span class="fas fa-arrow-right"></span></div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+            {% endfor %}
+        </div>
+    
+{% endblock %}
