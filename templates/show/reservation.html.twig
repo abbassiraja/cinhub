@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShowController!{% endblock %}
+
+{% block body %}
+<section class="form">
+    <div class="container">
+<div class="row">
+   
+
+        
+        <div class="col"> </div>
+          <div class="col-6" >
+            {{form_start(form)}}
+          
+         <div class="mb-3">
+            {{form_label(form.user, 'Nom',{'label_attr':{'class':'form-label'}})}}
+            {{form_row(form.user,{'attr':{'class':'form-control'}})}}
+        </div>
+        <div class="mb-3">
+            {{form_label(form.cinema,'nom de cinma',{'label_attr':{'class':'form-label'}})}}
+            {{form_row(form.cinema,{'attr':{'class':'form-control'}})}}
+        </div>
+         <div class="mb-3">
+            {{form_label(form.film,'Nom de film',{'label_attr':{'class':'form-label'}})}}
+            {{form_row(form.film,{'attr':{'class':'form-control'}})}}
+        </div>
+         <div class="mb-3">
+            {{form_label(form.nombredetickets,'Nombre de ticket',{'label_attr':{'class':'form-label'}})}}
+            {{form_row(form.nombredetickets,{'attr':{'class':'form-control'}})}}
+        </div>
+        
+        
+            {{form_end(form)}}
+          </div>
+          <div class="col"></div>
+        </div>
+        
+    </div>
+</section
+{% endblock %}
