@@ -24,7 +24,7 @@ class Reservation
 
     /**
      * @ORM\ManyToOne(targetEntity=Film::class, inversedBy="reservations")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $film;
 
