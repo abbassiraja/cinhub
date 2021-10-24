@@ -22,13 +22,14 @@ class ReservationType extends AbstractType
             
                 'label'=>false
             ])
+            
             ->add('film', EntityType::class,['class'=>Film::class,
                  'choice_label'=>'nom',
                 'label'=>'film'
             ])
             ->add('user', EntityType::class,['class'=>User::class,
             'choice_label'=>'nom',
-           'label'=>'user'
+           
        ])
             ->add('cinema', EntityType::class,['class'=>Cinema::class,
             'choice_label'=>'nom',
@@ -42,7 +43,7 @@ class ReservationType extends AbstractType
                     'class'=>'btn w-100 text-white btn-lg bg-dark',
                 ]
             ])
-            ->getForm();
+           
         ;
     }
 

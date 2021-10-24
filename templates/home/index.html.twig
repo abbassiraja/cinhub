@@ -3,6 +3,21 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block body %}
- bonjour
+ <div class="container">
+{% for item in publicite %}
+  <div class="d-lg-flex">
+    <div class="car">
+  <div class="care">
+   
+    <img class="" src="/film/{{item.image}}" alt="">
+    <p class="care-desc">{{item.description}}</p>
+  </div>
+ 
+  
+</div>
+</div>
+            {% endfor %}
+        </div>
 
+        
 {% endblock %}

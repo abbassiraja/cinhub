@@ -29,7 +29,7 @@ class Publicite
 
     /**
      * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="publicites")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $admin;
 

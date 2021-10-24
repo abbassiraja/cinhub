@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReservationController!{% endblock %}
+{% block title %}reserver{% endblock %}
 
 {% block body %}
+
+<div class="container">
 <section class="form">
-    <div class="container">
+    
 <div class="row">
    
 
@@ -37,6 +39,9 @@
          <div class="mb-3">
             {{form_label(reservationForm.nombredetickets,'Nombre de ticket',{'label_attr':{'class':'form-label'}})}}
             {{form_row(reservationForm.nombredetickets,{'attr':{'class':'form-control'}})}}
+        </div>
+         <div class="mb-3">
+         <button><a href="{{path('payement')}}" >payer</a></button>
         </div>
         {{form_end(reservationForm)}}
             

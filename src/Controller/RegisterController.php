@@ -58,7 +58,7 @@ class RegisterController extends AbstractController
                 // On stocke l'image dans la base de données (son nom)
                 $img = new Images();
                 $img->setName($fichier);
-                $anonce->addImage($img);
+                $user->addImage($img);
             }
             }
             $entityManager = $this->getDoctrine()->getManager();

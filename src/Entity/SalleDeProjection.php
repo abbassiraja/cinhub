@@ -27,11 +27,11 @@ class SalleDeProjection
     /**
      * @ORM\Column(type="integer")
      */
-    private $nombre_de_place;
+    private $nombredeplace;
 
     /**
      * @ORM\ManyToOne(targetEntity=Cinema::class, inversedBy="salleDeProjections")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $cinema;
 
@@ -39,6 +39,11 @@ class SalleDeProjection
      * @ORM\OneToMany(targetEntity=Film::class, mappedBy="salleDeProjection")
      */
     private $film;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
 
     public function __construct()
     {
@@ -64,12 +69,12 @@ class SalleDeProjection
 
     public function getNombreDePlace(): ?int
     {
-        return $this->nombre_de_place;
+        return $this->nombredeplace;
     }
 
-    public function setNombreDePlace(int $nombre_de_place): self
+    public function setNombreDePlace(int $nombredeplace): self
     {
-        $this->nombre_de_place = $nombre_de_place;
+        $this->nombredeplace = $nombredeplace;
 
         return $this;
     }
@@ -112,6 +117,18 @@ class SalleDeProjection
                 $film->setSalleDeProjection(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }

@@ -29,17 +29,16 @@ class ReservationController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $reservation = new Reservation();
-        $form = $this->createForm(ReservationType::class, $reservation);
+        
+        $form = $this->createForm(ReservationType::class);
         $form ->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()){
-
-            $film = $form->getData();
-            $reservation = $this->entityManager->getRepository(Film::class)->findAll();
+        if($form->isSubmitted() && $form->isValid()){
+            $reservation = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
             $this->entityManager->persist($reservation);
             $this->entityManager->flush();
         }
+
        
         return $this->render('reservation/index.html.twig', [
             'reservationForm' => $form->createView(),

@@ -22,7 +22,7 @@ class Cinema
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom_cinema;
+    private $nom;
 
     /**
      * @ORM\OneToMany(targetEntity=SalleDeProjection::class, mappedBy="cinema")
@@ -42,17 +42,14 @@ class Cinema
     /**
      * @ORM\Column(type="integer")
      */
-    private $numerodetéléphone;
+    private $telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $password;
+   
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -70,14 +67,14 @@ class Cinema
         return $this->id;
     }
 
-    public function getNomCinema(): ?string
+    public function getNom(): ?string
     {
-        return $this->nom_cinema;
+        return $this->nom;
     }
 
-    public function setNomCinema(string $nom_cinema): self
+    public function setNom(string $nom): self
     {
-        $this->nom_cinema = $nom_cinema;
+        $this->nom = $nom;
 
         return $this;
     }
@@ -154,14 +151,14 @@ class Cinema
         return $this;
     }
 
-    public function getNumerodetéléphone(): ?int
+    public function getTelephone(): ?int
     {
-        return $this->numerodetéléphone;
+        return $this->telephone;
     }
 
-    public function setNumerodetéléphone(int $numerodetéléphone): self
+    public function setTelephone(int $telephone): self
     {
-        $this->numerodetéléphone = $numerodetéléphone;
+        $this->telephone = $telephone;
 
         return $this;
     }
@@ -178,17 +175,7 @@ class Cinema
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
+   
 
     public function getImage(): ?string
     {

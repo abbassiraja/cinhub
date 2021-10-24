@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SalleDeProjectionController!{% endblock %}
+
+{% block body %}
+
+
+
+
+
+<body>
+<!-- header -->
+<div class="flip">
+  <div class="container-1">
+  {% for item in salledeprojection %}
+    
+    <div class="row">
+      <div class="cal-4">
+      <div><h1>{{item.nom}}</h1></div>
+        <div class="flip-box">
+        
+          <div class="flip-font">
+            <img src="/film/{{item.image}}" alt="">
+          </div>
+          <div class="flip-back">
+            <div class="f-header">
+              <div class="f-headder-img">
+                <img src="/film/{{item.image}}" alt="">
+              </div>
+            </div>
+            <div class="f-tutter">
+              <h4>{{item.nom}}</h4>
+              <p>Nombre de place: {{item.nombredeplace}}</p>
+              <ul class="s-link">
+                <!-- <li class="s-links"> <a href="#"><i class="fa fa-facebook"></i> </a></li> -->
+                <li class="s-links"> <a href="{{path('film')}}">Film</a> </li>
+             
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</body>
+ 
+
+{% endblock %}
