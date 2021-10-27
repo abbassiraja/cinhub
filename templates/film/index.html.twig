@@ -36,6 +36,7 @@
                     <p class="ps-3 icon text-muted"><span class="fas fa-comment-alt pe-1">Durée de film:{{item.dure.format('[h]:[m]')}}</span></p>
             </div>
             <div class="btn btn-primary"><a href="{{path('reservation')}}">Reserver</a><span class="fas fa-arrow-right"></span></div>
+            <div class="btn btn-primary"><a href="{{path('film_show', {'id':item.id})}}" class="btn btn-primary">Lire la suite</a><span class="fas fa-arrow-right"></span></div>
                 </div>
             </div>
         </div>
@@ -46,7 +47,11 @@
 
             {% endfor %}
         </div>
+      
 
 
         
+
+
+
 {% endblock %}

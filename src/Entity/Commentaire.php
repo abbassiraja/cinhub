@@ -18,43 +18,41 @@ class Commentaire
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Film::class)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $film;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $admin;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $user;
+    private $nom_utilisateur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="commentaires")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="datetime_immutable")
      */
-    private $admin;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Film::class, inversedBy="commentaires")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $film;
+    private $createdAt;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getText(): ?string
-    {
-        return $this->text;
-    }
-
-    public function setText(string $text): self
-    {
-        $this->text = $text;
-
-        return $this;
     }
 
     public function getUser(): ?User
@@ -65,6 +63,18 @@ class Commentaire
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getFilm(): ?Film
+    {
+        return $this->film;
+    }
+
+    public function setFilm(?Film $film): self
+    {
+        $this->film = $film;
 
         return $this;
     }
@@ -81,14 +91,38 @@ class Commentaire
         return $this;
     }
 
-    public function getFilm(): ?Film
+    public function getText(): ?string
     {
-        return $this->film;
+        return $this->text;
     }
 
-    public function setFilm(?Film $film): self
+    public function setText(string $text): self
     {
-        $this->film = $film;
+        $this->text = $text;
+
+        return $this;
+    }
+
+    public function getNomUtilisateur(): ?string
+    {
+        return $this->nom_utilisateur;
+    }
+
+    public function setNomUtilisateur(string $nom_utilisateur): self
+    {
+        $this->nom_utilisateur = $nom_utilisateur;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

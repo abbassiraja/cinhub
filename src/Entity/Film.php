@@ -60,10 +60,7 @@ class Film
      */
     private $reservations;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="film")
-     */
-    private $commentaires;
+  
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class)
@@ -81,6 +78,11 @@ class Film
      * @ORM\Column(type="string", length=255)
      */
     private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="film")
+     */
+    private $commentaires;
 
     public function __construct()
     {
@@ -207,35 +209,7 @@ class Film
         return $this;
     }
 
-    /**
-     * @return Collection|Commentaire[]
-     */
-    public function getCommentaires(): Collection
-    {
-        return $this->commentaires;
-    }
-
-    public function addCommentaire(Commentaire $commentaire): self
-    {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires[] = $commentaire;
-            $commentaire->setFilm($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommentaire(Commentaire $commentaire): self
-    {
-        if ($this->commentaires->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getFilm() === $this) {
-                $commentaire->setFilm(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
     public function getCategorie(): ?Categorie
     {
@@ -269,6 +243,36 @@ class Film
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setFilm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getFilm() === $this) {
+                $commentaire->setFilm(null);
+            }
+        }
 
         return $this;
     }

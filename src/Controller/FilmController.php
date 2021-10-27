@@ -5,7 +5,10 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Film;
+use DateTimeImmutable;
+use App\Form\CommentaireType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,4 +36,26 @@ public function __construct(EntityManagerInterface $entityManager) {
             'film' => $film
         ]);
     }
+   
+
+
+
+
+    /**
+    * @Route("/show/{id}",name="film_show")
+    */
+
+    public function show($id){
+     
+        $film = $this->getDoctrine()
+        ->getRepository(Film::class)
+        ->findOneBy(['id'=>$id]);
+        return $this->render('film/show.html.twig',[
+            
+            'film' => $film
+        ]);
+    }
+   
+
 }
+

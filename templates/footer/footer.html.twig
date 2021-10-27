@@ -1,108 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}cinema{% endblock %}</title>
-        
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{asset('css/style.css')}}">
-         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.Default.css">
-         
-          <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-          <script src="./index.js"></script>
-        {% endblock %}
-
-        {% block javascripts %}
-           
-          
-        {% endblock %}
-    </head>
-    <body>
-     <header>
-            
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top " >
-            <div class="container-fluid">
-                <a class="navbar-brand text-dark" href="{{path('cinema')}}"><img src="{{asset('film/logo1.jpg')}}" width="100px" height="40px"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="{{path('home')}}">Acceuil <span class="sr-only">(current)</span></a>
-                    </li>
-                     <li class="nav-item">
-                      <a class="nav-link" href="{{path('salle_de_projection')}}">Salle de projection</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{path('film')}}">Film</a>
-                    </li>
-                   
-                    
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{path('contact')}}">Contact</a>
-                      </li>
-
-                      
-                   
-                   
-                  </ul>
-
-                  <ul class="navbar-nav d-flex justify-content-end">
-
-                    {% if app.user %}
-
-                     <li class="nav-item ">
-                      <a class="nav-link" >{{ app.user.nom}} {{ app.user.prenom }}</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{path('app_logout')}}">deconnexion</a>
-                    </li>
-                    {% else %}
-
-                     <li class="nav-item ">
-                      <a class="nav-link" href="{{path('register')}}">Inscription <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
-                    </li>
-
-                    {% endif %}
-
-                   
-                   
-                   
-                  </ul>
-                 </div>
-                </div>
-              </nav>
-               <div class="w3-content w3-section" style="max-width:100%" id="cont">
-           <img class="mySlides" src="{{ asset('css/slide/s1.jpg') }}" alt="image" style="height: 600px;width: 100%;">
-           <img class="mySlides" src="{{ asset('css/slide/s2.jpg') }}" alt="image" style="height: 600px;width: 100%;">
-           <img class="mySlides" src="{{ asset('css/slide/s3.jpg') }}" alt="image" style="height: 600px;width: 100%;">
-        </div>
-        </header>
-      
-
-
-       
-
-        {% block body %}{% endblock %}
-        <script src="{{ asset('js/index.js')}}"></script>
-       <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-         <script src="{{asset('js/jquery-3.5.1.min.slim.js')}}"></script>
-         <script src="{{asset('js/popper.min')}}"></script>
-
-         
-    </body>
-</html>
-
       <!-- footer Section Begins -->
 <section id="footer" class="footer">
 <div class="footerBg"></div>
@@ -156,11 +51,23 @@
 </div>
 </section>
 <!-- footer Section Ends -->
-
+<!-- copyright Section Begins -->
+<section id="copyright" class="copyright">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<h6> © 2017 This theme is powered by <a href="#" target="_blank">w3schoolweb</a> </h6>
+</div>
+</div>
+</div>
+</section>
+<!-- copyright Section Ends -->
 
 <style>
 /*  Footer css */
-
+#footer{
+  margin-top:1000px
+}
 .element-btn .element-fill-btn {
     background-color: #ff6600;
     border: 0;

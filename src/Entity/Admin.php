@@ -34,10 +34,7 @@ class Admin
      */
     private $publicites;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="admin")
-     */
-    private $commentaires;
+   
 
     /**
      * @ORM\OneToMany(targetEntity=Film::class, mappedBy="admin")
@@ -110,35 +107,7 @@ class Admin
         return $this;
     }
 
-    /**
-     * @return Collection|Commentaire[]
-     */
-    public function getCommentaires(): Collection
-    {
-        return $this->commentaires;
-    }
-
-    public function addCommentaire(Commentaire $commentaire): self
-    {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires[] = $commentaire;
-            $commentaire->setAdmin($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommentaire(Commentaire $commentaire): self
-    {
-        if ($this->commentaires->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getAdmin() === $this) {
-                $commentaire->setAdmin(null);
-            }
-        }
-
-        return $this;
-    }
+   
 
     /**
      * @return Collection|Film[]

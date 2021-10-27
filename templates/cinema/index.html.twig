@@ -4,47 +4,8 @@
 
 {% block body %}
 
-
-
-<section>
-  <div id="map"></div>
-
-  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-   <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRG2DtlyXUkFds-AVsYJwJv6LADCP0eb4&callback=initMap&v=weekly"
-      async
-    ></script>
-    <script>
-    function initMap() {
-  const myLatLng = { lat: 36.8064835, lng: 10.1815426 };
-  const sfaxLatLng = { lat: 34.7230787, lng: 10.335875 };
-  const djerbaLatLng = { lat: 33.7733906, lng: 10.8859041 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: myLatLng,
-  });
-
-  new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Tunis",
-  });
-  new google.maps.Marker({
-    position: sfaxLatLng,
-    map,
-    title: "Sfax",
-  });
-  new google.maps.Marker({
-    position: djerbaLatLng,
-    map,
-    title: "Djerba",
-  });
-}
-    </script>
-   
-
+ <div id="macarte"></div>
  
-</section>
 
 
 
@@ -89,7 +50,163 @@
       
     </div>
     {% endfor %}
+
+
+<!--div reseaux sociaux -->
+<div class="box-wrapper">
+  <div class="card">
+    <div class="img-box"></div>
+    <h2>NOUS SUIVRE</h2> 
+    <div class="links">
+      <img src="https://s2.svgbox.net/social.svg?ic=telegram&color=000" width="32" height="32">
+      <img src="https://s2.svgbox.net/social.svg?ic=instagram&color=000" width="32" height="32">
+      <img src="https://s2.svgbox.net/social.svg?ic=facebook&color=000" width="32" height="32">
+      <img src="https://s2.svgbox.net/social.svg?ic=codepen&color=000" width="32" height="32">
+      <img src="https://s2.svgbox.net/social.svg?ic=github&color=000" width="32" height="32">
+    </div>
   </div>
 </div>
 
+  </div>
+</div>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  
+  box-sizing: border-box;
+}
+.box-wrapper {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background: #5dafb8;
+  color: #fff;
+  font-family: sans-serif;
+}
+.card {
+  height: 50vh;
+  border-radius: 13px;
+  width: 660px;
+  height: 50vh;
+ 
+  padding: 2rem;
+  background: #6cc2ce;
+  box-shadow: 20px 40px 33px rgba(0, 0, 0, 0.2);
+}
+
+.img-box {
+  width: 400px;
+  height: 20vh;
+  background-image: linear-gradient(70deg, RoyalBlue, DarkTurquoise);
+  background-position: center center;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 10px 15px 15px 4px #3891b4;
+  animation: animationImg 2s infinite;
+}
+
+.card h2 {
+  text-align: center;
+  margin-top: 4rem;
+  animation: animationTitle 2s infinite;
+}
+
+.card .links {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  gap: 1rem;
+}
+.card .links img {
+  animation: animationLink 0.8s linear;
+}
+
+@keyframes animationTitle {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes animationLink {
+  from {
+    transform: translate(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animationImg {
+  0% {
+    transform: scale3d(1, 1.5, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 1.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 2.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 1.85, 1);
+  }
+  60% {
+    transform: scale3d(0.95, 1.25, 1);
+  }
+  70% {
+    transform: scale3d(1.05, 1.5, 1);
+  }
+  85% {
+    transform: scale3d(0.95, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+</style>
+
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<script>
+var villes = {
+  "Tunis": {"lat": 36.80278 ,"lon": 10.17972},
+  "Ariana": {"lat": 36.866537,"lon": 10.164723},
+  "Sousse":{"lat": 35.82556,"lon": 10.64111},
+  "kairouane":{"lat": 35.675914,"lon": 10.091924}
+};
+
+var carte = L.map('macarte').setView([36.80278, 10.17972], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+    attribution: 'données @ <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France </a>',
+    
+    maxZoom: 20,
+   
+    minZoom: 1,
+    
+}).addTo(carte);
+
+var marqueures = L.markerClusterGroup();
+
+for (ville in villes ){
+var marqueure = L.marker([villes[ville].lat, villes[ville].lon]).addTo(carte);
+marqueure.bindPopup("<p>"+ville+"</p>");
+marqueures.addLayer(marqueure);
+}
+carte.addLayer(marqueures);
+</script>
 {% endblock %}
