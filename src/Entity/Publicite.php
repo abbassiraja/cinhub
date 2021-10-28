@@ -23,7 +23,7 @@ class Publicite
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=255)
      */
     private $description;
 
@@ -32,6 +32,8 @@ class Publicite
      * @ORM\JoinColumn(nullable=true)
      */
     private $admin;
+
+   
 
     public function getId(): ?int
     {
@@ -73,4 +75,6 @@ class Publicite
 
         return $this;
     }
+
+   
 }

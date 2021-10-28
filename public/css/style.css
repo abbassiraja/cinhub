@@ -1,9 +1,10 @@
+/* navbar */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 *{
     font-family: 'Inter', sans-serif;
 }
 .nav-link{
-    color: hsl(0, 3%, 6%) !important;
+    color: whitesmoke !important;
 }
 .nav-link:hover{
     color: rgb(224, 62, 12) !important;
@@ -13,7 +14,9 @@
     
 }
 
+/* end navbar */
 
+/*  card film */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
@@ -24,8 +27,10 @@
 }
 
 body {
+
     margin-top: 30px;
     background-color: #eee
+    
 }
 
 .container {
@@ -199,6 +204,9 @@ p {
 .card .content .foot .icon {
     font-size: 12px
 }
+/*  end card film */
+
+/* card publicité    */
 
 * {
     margin: 0;
@@ -251,6 +259,8 @@ p {
     opacity: 1;
     height: 100%;
   }
+
+  /*  end card publicité */
 
   .signin-container {
     border: 1px solid #F6F6F6;
@@ -496,7 +506,7 @@ ul{
   margin-left: 10px;
 }
 
-
+/* card salle de projection  */
 
 .container-1{
   display: flex;
@@ -612,13 +622,13 @@ h1{
   transform: rotateY(180deg);
 }
 
+/* end card salle de projection */
 
 
-/* reseaux sociaux*/
 
 
 
- 
+ /* card show */
 .cardees{
   display:flex;
   flex-direction:column;
@@ -628,6 +638,7 @@ h1{
   
   padding: 2em;
   width:clamp(300px, 50vw, 700px);
+  margin-left: 0px;
   } 
 
 .imagin{
@@ -649,6 +660,7 @@ h1{
     0 10px 13px -4px rgba(0, 0, 0, 0.23), 
     0 16px 20px -4px rgba(0, 0, 0, 0.36);
   overflow:hidden;
+  width: 1200px;
 } 
 
 .carda__image{
@@ -689,8 +701,81 @@ h1{
     0 8px 15px 0 #0005;
  } 
 
+ /* end card show */
+
  /* section maps*/
  #macarte { 
    height: 400px;
-   margin-top: 30px;
+   
+}
+
+/* pulicité  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.containere {
+  position: relative;
+  width: 1300px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #16384c;
+}
+
+.containere .cardi {
+  background: #fff;
+  position: relative;
+  max-width: 300px;
+  height: 245px;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.containere .cardi:hover {
+  height: 400px;
+}
+
+.containere .cardi .imgBx {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  top: -60px;
+  left: 5px;
+  box-sizing: 0 5px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.containere .cardi .imgBx img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.containere .cardi .contenta {
+  position: relative;
+  margin-top: -140px;
+  padding: 10px 15px;
+  text-align: center;
+  color: #111;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  visibility: hidden;
+}
+
+.containere .cardi:hover .contenta {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -40px;
+  transition-delay: 0.2s;
 }

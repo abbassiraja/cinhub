@@ -3,21 +3,27 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block body %}
- <div class="container">
-{% for item in publicite %}
-  <div class="d-lg-flex">
-    <div class="car">
-  <div class="care">
-   
-    <img class="" src="/film/{{item.image}}" alt="">
-    <p class="care-desc">{{item.description}}</p>
-  </div>
- 
-  
-</div>
-</div>
-            {% endfor %}
-        </div>
+  <h1>Les PROCHAINS FILMS AU CINEMA</h1>
+<div class="containere">
 
-        
+{% for item in publicite %}
+    <div class="cardi">
+      <div class="imgBx">
+        <img src="/film/{{item.image}}" alt="">
+      </div>
+      <div class="contenta">
+        <div>
+          
+          <p>{{item.description}}</p>
+        </div>
+      </div>
+    </div>
+
+ 
+
+   
+    {% endfor %}
+
+  </div>
+     
 {% endblock %}

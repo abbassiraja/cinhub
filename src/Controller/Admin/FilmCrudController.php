@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class FilmCrudController extends AbstractCrudController
@@ -25,6 +26,7 @@ class FilmCrudController extends AbstractCrudController
             
             TextField::new('nom'),
             TextField::new('realisateur'),
+        AssociationField::new('categorie'),
             TextareaField::new('description'),
             TimeField::new('dure'),
             DateTimeField::new('time'),

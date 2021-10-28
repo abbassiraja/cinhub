@@ -43,7 +43,7 @@ class Commentaire
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom_utilisateur;
+    private $nomutilisateur;
 
     /**
      * @ORM\Column(type="datetime_immutable")
@@ -103,14 +103,14 @@ class Commentaire
         return $this;
     }
 
-    public function getNomUtilisateur(): ?string
+    public function getNomutilisateur(): ?string
     {
-        return $this->nom_utilisateur;
+        return $this->nomutilisateur;
     }
 
-    public function setNomUtilisateur(string $nom_utilisateur): self
+    public function setNomutilisateur(string $nomutilisateur): self
     {
-        $this->nom_utilisateur = $nom_utilisateur;
+        $this->nomutilisateur = $nomutilisateur;
 
         return $this;
     }

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211027123938 extends AbstractMigration
+final class Version20211028134447 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,14 +20,14 @@ final class Version20211027123938 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE cinema ADD lat DOUBLE PRECISION NOT NULL, ADD lon DOUBLE PRECISION NOT NULL');
-        $this->addSql('ALTER TABLE commentaire CHANGE nom_utilisateur nom_utilisateur VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE commentaire CHANGE nomutilisateur nomutilisateur VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE salle_de_projection ADD lat DOUBLE PRECISION NOT NULL, ADD lon DOUBLE PRECISION NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE cinema DROP lat, DROP lon');
-        $this->addSql('ALTER TABLE commentaire CHANGE nom_utilisateur nom_utilisateur VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
+        $this->addSql('ALTER TABLE commentaire CHANGE nomutilisateur nomutilisateur VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
+        $this->addSql('ALTER TABLE salle_de_projection DROP lat, DROP lon');
     }
 }
