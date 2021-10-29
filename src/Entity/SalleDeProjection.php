@@ -55,9 +55,17 @@ class SalleDeProjection
      */
     private $lon;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="salledeprojection")
+     */
+    private $reservations;
+
+   
+
     public function __construct()
     {
         $this->film = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -166,4 +174,36 @@ class SalleDeProjection
 
         return $this;
     }
+
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setSalledeprojection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getSalledeprojection() === $this) {
+                $reservation->setSalledeprojection(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
 }

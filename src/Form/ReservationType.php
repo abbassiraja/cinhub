@@ -6,6 +6,7 @@ use App\Entity\Film;
 use App\Entity\User;
 use App\Entity\Cinema;
 use App\Entity\Reservation;
+use App\Entity\SalleDeProjection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -31,9 +32,9 @@ class ReservationType extends AbstractType
             'choice_label'=>'nom',
            
        ])
-            ->add('cinema', EntityType::class,['class'=>Cinema::class,
+            ->add('salledeprojection', EntityType::class,['class'=>SalleDeProjection::class,
             'choice_label'=>'nom',
-           'label'=>'cinema'
+           'label'=>'salle de projection'
        ])
             
             ->add('submit', SubmitType::class,[

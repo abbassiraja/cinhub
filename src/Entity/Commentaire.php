@@ -40,15 +40,17 @@ class Commentaire
      */
     private $text;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nomutilisateur;
+  
 
     /**
      * @ORM\Column(type="datetime_immutable")
      */
     private $createdAt;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nomutilisateur;
 
     public function getId(): ?int
     {
@@ -103,17 +105,7 @@ class Commentaire
         return $this;
     }
 
-    public function getNomutilisateur(): ?string
-    {
-        return $this->nomutilisateur;
-    }
-
-    public function setNomutilisateur(string $nomutilisateur): self
-    {
-        $this->nomutilisateur = $nomutilisateur;
-
-        return $this;
-    }
+ 
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -123,6 +115,18 @@ class Commentaire
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getNomutilisateur(): ?string
+    {
+        return $this->nomutilisateur;
+    }
+
+    public function setNomutilisateur(string $nomutilisateur): self
+    {
+        $this->nomutilisateur = $nomutilisateur;
 
         return $this;
     }

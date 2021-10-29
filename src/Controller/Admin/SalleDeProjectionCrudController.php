@@ -7,6 +7,7 @@ use App\Entity\SalleDeProjection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -28,6 +29,8 @@ class SalleDeProjectionCrudController extends AbstractCrudController
             ->setUploadedFileNamePattern('[randomhash].[extension]'),
             TextField::new('nom'),
             IntegerField::new('nombredeplace'),
+            NumberField::new('lat'),
+            NumberField::new('lon'),
             
       
         ];

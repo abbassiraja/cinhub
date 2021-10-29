@@ -40,6 +40,11 @@ class Reservation
      */
     private $cinema;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=SalleDeProjection::class, inversedBy="reservations")
+     */
+    private $salledeprojection;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +94,18 @@ class Reservation
     public function setCinema(?Cinema $cinema): self
     {
         $this->cinema = $cinema;
+
+        return $this;
+    }
+
+    public function getSalledeprojection(): ?SalleDeProjection
+    {
+        return $this->salledeprojection;
+    }
+
+    public function setSalledeprojection(?SalleDeProjection $salledeprojection): self
+    {
+        $this->salledeprojection = $salledeprojection;
 
         return $this;
     }
