@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Film;
-use App\Entity\User;
+
 use App\Entity\Cinema;
 use App\Entity\Reservation;
 use App\Entity\SalleDeProjection;
@@ -28,10 +28,7 @@ class ReservationType extends AbstractType
                  'choice_label'=>'nom',
                 'label'=>'film'
             ])
-            ->add('user', EntityType::class,['class'=>User::class,
-            'choice_label'=>'nom',
-           
-       ])
+       
             ->add('salledeprojection', EntityType::class,['class'=>SalleDeProjection::class,
             'choice_label'=>'nom',
            'label'=>'salle de projection'
